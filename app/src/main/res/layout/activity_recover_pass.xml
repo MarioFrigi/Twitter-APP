@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecoverPassActivity"
+    android:forceDarkAllowed="false">
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp">
+
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/leftarrow"
+            android:background="@null"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/changePass"
+            android:paddingLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cambiar contraseña"
+            android:textColor="@color/colorBlack"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_below="@id/toolbar"
+        android:layout_width="4000dp"
+        android:layout_height="1px"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="10dp"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:onClick="closeKeyboard"
+        />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:text="Encuentra tu cuenta de Twitter"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:textSize="23dp"
+        android:textAllCaps="false"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:text="Ingresa tu correo electrónico, número de teléfono o nombre de usuario."
+        android:textColor="@color/colorBlack"
+        android:textSize="15dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/userID"
+        android:layout_below="@id/title2"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:textSize="17dp"
+        android:background="@drawable/edit_rounded_states"
+        android:layout_margin="25dp"
+        android:layout_alignLeft="@id/title"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:inputType="textAutoComplete"
+        android:maxLines="1"
+        android:lines="1"
+        />
+
+    <Button
+        android:id="@+id/sendMail"
+        android:layout_below="@id/userID"
+        android:layout_width="85dp"
+        android:layout_height="30dp"
+        android:background="@drawable/log_rounded_button"
+        android:text="Buscar"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:layout_alignLeft="@id/userID"
+        android:textAllCaps="false"
+        android:layout_marginBottom="10dp"
+        />
+
+
+</RelativeLayout>

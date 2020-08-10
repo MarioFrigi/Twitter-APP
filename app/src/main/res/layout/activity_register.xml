@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
-    android:id="@+id/container"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:forceDarkAllowed="false"
-    >
+    tools:context=".RegisterActivity"
+    android:forceDarkAllowed="false">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -24,6 +21,19 @@
         android:src="@drawable/applogo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        />
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/rightarrow"
+        android:background="@null"
+        android:layout_gravity="center"
+        android:layout_alignRight="@id/logButton"
+        android:layout_marginTop="25dp"
         />
 
     <TextView
@@ -31,25 +41,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
-        android:text="Iniciar sesión en Twitter."
+        android:text="Crea tu cuenta"
         android:textColor="@color/colorBlack"
-        android:textSize="25dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:paddingTop="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"/>
 
-    <TextView
-        android:id="@+id/overUser"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/groupName"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="30dp"
-        android:text="Teléfono, correo o usuario"
         android:layout_below="@id/title"
+        android:layout_marginTop="50dp"
+        android:textColorHint="@color/colorGrey">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:lines="1"
+            android:textColor="@color/colorWhite"
+            android:backgroundTint="@color/colorGrey"
+            android:maxLength="50"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
         android:textColor="@color/colorGrey"
-        android:textSize="16dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp" />
+        android:layout_below="@id/groupName"
+        android:layout_alignRight="@id/groupName"
+        android:textSize="15dp"
+        android:layout_marginRight="10dp"
+        />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/groupUser"
@@ -57,72 +89,43 @@
         android:layout_marginRight="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/overUser"
-        android:layout_marginTop="-10dp">
+        android:layout_below="@id/groupName"
+        android:layout_marginTop="20dp"
+        android:textColorHint="@color/colorGrey">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/userID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/overUser"
-            android:textColor="@color/colorWhite"
+            android:hint="Teléfono o correo"
             android:lines="1"
+            android:textColor="@color/colorWhite"
             android:backgroundTint="@color/colorGrey"
-            android:maxLength="40"
+            android:inputType="phone"
             />
-
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <TextView
-        android:id="@+id/overPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:text="Contraseña"
-        android:layout_below="@id/groupUser"
-        android:textColor="@color/colorGrey"
-        android:inputType="textEmailAddress"
-        android:textSize="16dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/groupPass"
+        android:id="@+id/groupDate"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/overPassword"
-        android:layout_marginTop="-10dp"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/colorGrey">
+        android:layout_below="@id/groupUser"
+        android:layout_marginTop="20dp"
+        android:textColorHint="@color/colorGrey">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userPassword"
+            android:id="@+id/bornDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Fecha de nacimiento"
             android:lines="1"
-            android:backgroundTint="@color/colorGrey"
             android:textColor="@color/colorWhite"
-            android:inputType="textPassword"
+            android:backgroundTint="@color/colorGrey"
+            android:clickable="true"
             />
-
     </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/forgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/groupPass"
-        android:textColor="@color/colorGrey"
-        android:text="¿Olvidaste tu contraseña?"
-        android:layout_marginTop="30dp"
-        android:layout_centerInParent="true"
-        android:clickable="true"
-        />
-
-
 
     <View
         android:layout_above="@id/logButton"
@@ -134,31 +137,30 @@
 
     <Button
         android:id="@+id/logButton"
-        android:layout_width="110dp"
+        android:layout_width="85dp"
         android:layout_height="30dp"
-        android:text="Inicia sesión"
+        android:text="Siguiente"
         android:layout_alignParentBottom="true"
         android:background="@drawable/log_rounded_button"
         android:textColor="@color/colorWhite"
-        android:layout_alignRight="@id/groupPass"
+        android:layout_alignRight="@id/groupDate"
         android:textAllCaps="false"
         android:layout_marginBottom="10dp"
         android:textStyle="bold"
         />
 
     <Button
-        android:id="@+id/regButton"
-        android:layout_width="110dp"
+        android:id="@+id/changeUserID"
+        android:layout_width="85dp"
         android:layout_height="30dp"
-        android:text="Registrate"
+        android:text="Usar correo"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/log_rounded_button"
-        android:textColor="@color/colorWhite"
-        android:layout_alignLeft="@id/groupPass"
+        android:background="@android:color/transparent"
+        android:textColor="@color/colorAccent"
+        android:layout_alignLeft="@id/groupDate"
         android:textAllCaps="false"
         android:layout_marginBottom="10dp"
-        android:textStyle="bold"
         />
 
-</RelativeLayout>
 
+</RelativeLayout>
