@@ -57,30 +57,35 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:layout_marginTop="50dp"
-        android:textColorHint="@color/colorGrey">
+        android:textColorHint="@color/colorGrey"
+        android:backgroundTint="@color/colorBlueTwitter">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre"
-            android:lines="1"
-            android:textColor="@color/colorWhite"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:inputType="text"
+            android:ellipsize="end"
+            android:textColor="@color/colorBlack"
             android:backgroundTint="@color/colorGrey"
             android:maxLength="50"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="50"
+
+    <com.wafflecopter.charcounttextview.CharCountTextView
+        android:id="@+id/counter"
+        app:maxCharacters="50"
         android:textColor="@color/colorGrey"
         android:layout_below="@id/groupName"
         android:layout_alignRight="@id/groupName"
         android:textSize="15dp"
         android:layout_marginRight="10dp"
-        />
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -99,7 +104,10 @@
             android:layout_height="wrap_content"
             android:hint="Teléfono o correo"
             android:lines="1"
-            android:textColor="@color/colorWhite"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:textColor="@color/colorBlack"
             android:backgroundTint="@color/colorGrey"
             android:inputType="phone"
             />
@@ -121,7 +129,7 @@
             android:layout_height="wrap_content"
             android:hint="Fecha de nacimiento"
             android:lines="1"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlack"
             android:backgroundTint="@color/colorGrey"
             android:clickable="true"
             />
@@ -151,16 +159,27 @@
 
     <Button
         android:id="@+id/changeUserID"
-        android:layout_width="85dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:text="Usar correo"
         android:layout_alignParentBottom="true"
         android:background="@android:color/transparent"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorBlueTwitter"
         android:layout_alignLeft="@id/groupDate"
         android:textAllCaps="false"
         android:layout_marginBottom="10dp"
         />
 
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"
+        android:theme="@style/MyDatePicker"
+        android:layout_below="@id/groupDate"
+        />
 
 </RelativeLayout>

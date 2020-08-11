@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     android:datePickerMode="spinner"
     android:calendarViewShown="false"
+    android:color="@color/colorBlueTwitter"
     android:theme="@style/MyDatePicker"
-    android:background="@color/colorBack"
 />
 
 

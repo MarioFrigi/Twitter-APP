@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#111A23</color>
-    <color name="colorAccent">#00acee</color>
+    <color name="colorBlueTwitter">#00acee</color>
     <color name="colorBack">#15202B</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000</color>

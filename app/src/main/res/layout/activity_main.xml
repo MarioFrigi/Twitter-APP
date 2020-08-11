@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/overUser"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlack"
             android:lines="1"
             android:backgroundTint="@color/colorGrey"
             android:maxLength="40"
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:lines="1"
             android:backgroundTint="@color/colorGrey"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlack"
             android:inputType="textPassword"
             />
 
