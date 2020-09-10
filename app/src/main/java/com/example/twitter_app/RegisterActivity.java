@@ -2,6 +2,7 @@ package com.example.twitter_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.wafflecopter.charcounttextview.CharCountTextView;
@@ -27,8 +29,9 @@ public class RegisterActivity extends AppCompatActivity {
     TextView counter;
     ImageButton backButton;
     DatePicker datePicker;
-    Button changeUserID;
+    Button changeUserID, logButton;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,15 +39,95 @@ public class RegisterActivity extends AppCompatActivity {
 
         name = findViewById(R.id.name);
         bornDate = findViewById(R.id.bornDate);
-        counter = findViewById(R.id.counter);
         userID = findViewById(R.id.userID);
         datePicker = findViewById(R.id.datePicker);
-
+        CharCountTextView tvCharCount = (CharCountTextView) findViewById(R.id.counter);
+        counter = findViewById(R.id.counter);
         backButton = findViewById(R.id.backButton);
         bornDate.setInputType(InputType.TYPE_NULL);
         changeUserID = findViewById(R.id.changeUserID);
+        logButton = findViewById(R.id.logButton);
 
-        CharCountTextView tvCharCount = (CharCountTextView) findViewById(R.id.counter);
+        Bundle datos = this.getIntent().getExtras();
+        if(datos != null) {
+            String nameRecieved = datos.getString("name");
+            String userIDRecieved = datos.getString("userID");
+            String bornDateRecieved = datos.getString("bornDate");
+            Integer id = datos.getInt("id");
+            name.setText(nameRecieved);
+            Integer namelenght = 50 - name.length();
+            counter.setText(namelenght.toString());
+            userID.setText(userIDRecieved);
+            bornDate.setText(bornDateRecieved);
+            String[] date = bornDateRecieved.split(" ");
+            int day = Integer.parseInt(date[0]);
+            String month = date[1];
+            switch(month) {
+                case "January":
+                case "enero":
+                    month = "1";
+                    break;
+
+                case "Febuary":
+                case "febrero":
+                    month = "2";
+                    break;
+
+                case "March":
+                case "marzo":
+                    month = "3";
+                    break;
+
+                case "April":
+                case "abril":
+                    month = "4";
+                    break;
+
+                case "May":
+                case "mayo":
+                    month = "5";
+                    break;
+
+                case "June":
+                case "junio":
+                    month = "6";
+                    break;
+
+                case "July":
+                case "julio":
+                    month = "7";
+                    break;
+
+                case "August":
+                case "agosto":
+                    month = "8";
+                    break;
+
+                case "September":
+                case "septiembre":
+                    month = "9";
+                    break;
+
+                case "October":
+                case "octubre":
+                    month = "10";
+                    break;
+
+                case "November":
+                case "noviembre":
+                    month = "11";
+                    break;
+
+                case "December":
+                case "diciembre":
+                    month = "12";
+                    break;
+            }
+            int year = Integer.parseInt(date[2]);
+            datePicker.init(year, Integer.parseInt(month)-1, day,null);
+            focusSelector(id);
+        }
+
         tvCharCount.setEditText(name);
         tvCharCount.setCharCountChangedListener(new CharCountTextView.CharCountChangedListener() {
             @Override
@@ -131,6 +214,18 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        logButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivity.this, RegisterActivity2.class);
+                intent.putExtra("name", name.getText().toString());
+                intent.putExtra("userID", userID.getText().toString());
+                intent.putExtra("bornDate", bornDate.getText().toString());
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
         userID.setHint("");
         changeUserID.setVisibility(View.GONE);
         datePicker.setVisibility(View.GONE);
@@ -146,6 +241,18 @@ public class RegisterActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
+    public void focusSelector(Integer id){
+        if(id == 1){
+            name.requestFocus();
+        }else if (id ==2){
+            userID.requestFocus();
+            changeUserID = findViewById(R.id.changeUserID);
+            changeUserID.setVisibility(View.VISIBLE);
+        }else if (id == 3){
+            bornDate.requestFocus();
+        }
+    }
+
     public void closeKeyboard(View view){
         view = this.getCurrentFocus();
         if(view != null){
@@ -155,5 +262,4 @@ public class RegisterActivity extends AppCompatActivity {
         changeUserID.setVisibility(View.GONE);
         datePicker.setVisibility(View.GONE);
     }
-
 }

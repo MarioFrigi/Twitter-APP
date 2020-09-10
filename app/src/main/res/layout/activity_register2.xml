@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity2"
+    android:forceDarkAllowed="false">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/applogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        />
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/leftarrow"
+        android:background="@null"
+        android:layout_gravity="center"
+        android:layout_alignLeft="@id/logButton"
+        android:layout_marginTop="25dp"
+        />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="30dp"
+        android:paddingTop="10dp"
+        android:text="Crea tu cuenta"
+        android:textColor="@color/colorBlack"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textIsSelectable="true"
+        />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/title"
+        android:layout_marginTop="120dp"
+        android:hint="Nombre"
+        android:scrollHorizontally="true"
+        android:inputType="none"
+        android:ellipsize="end"
+        android:focusable="false"
+        android:textIsSelectable="true"
+        />
+
+    <EditText
+        android:id="@+id/userID"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/name"
+        android:layout_marginTop="20dp"
+        android:hint="Teléfono o Correo"
+        android:scrollHorizontally="true"
+        android:inputType="none"
+        android:ellipsize="end"
+        android:focusable="false"
+        android:textIsSelectable="true"
+        />
+
+    <EditText
+        android:id="@+id/birthday"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/userID"
+        android:layout_marginTop="20dp"
+        android:hint="Cumpleaños"
+        android:scrollHorizontally="true"
+        android:inputType="none"
+        android:ellipsize="end"
+        android:focusable="false"
+        android:textIsSelectable="true"
+        />
+
+    <TextView
+        android:id="@+id/politicies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="35dp"
+        android:paddingRight="35dp"
+        android:text="Al registrarte, aceptas nuestros Terminos, Politica de Privacidad y uso de Cookies."
+        android:textStyle="bold"
+        android:layout_below="@id/birthday"
+        android:layout_marginTop="80dp"
+        android:textIsSelectable="true"
+        />
+
+    <Button
+        android:id="@+id/logButton"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:text="Registrarse"
+        android:layout_below="@id/politicies"
+        android:background="@drawable/log_rounded_button"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+</RelativeLayout>
